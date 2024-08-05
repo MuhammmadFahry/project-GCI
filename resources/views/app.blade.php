@@ -6,9 +6,13 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230526/pngtree-an-old-bookcase-in-a-library-image_2642908.jpg'); /* Ganti URL dengan URL gambar latar belakang perpustakaan Anda */
+      background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230526/pngtree-an-old-bookcase-in-a-library-image_2642908.jpg');
       background-size: cover;
       background-attachment: fixed;
+    }
+    .content-bg {
+      background: rgba(255, 255, 255, 0.5); /* White background with 50% opacity */
+      backdrop-filter: blur(10px); /* Blur effect */
     }
   </style>
 </head>
@@ -21,19 +25,9 @@
           <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
             <span class="absolute -inset-0.5"></span>
             <span class="sr-only">Open main menu</span>
-            <!--
-              Icon when menu is closed.
-
-              Menu open: "hidden", Menu closed: "block"
-            -->
             <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
-            <!--
-              Icon when menu is open.
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
             <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -45,7 +39,6 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
@@ -72,18 +65,7 @@
               </button>
             </div>
 
-            <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-              <!-- Active: "bg-gray-100", Not Active: "" -->
+            <div id="user-menu" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
@@ -100,7 +82,6 @@
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="sm:hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
         <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
@@ -113,7 +94,27 @@
   <div class="container mx-auto px-4 py-6">
     <h1 class="text-3xl font-bold text-white">Dashboard</h1>
     <div id="content" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Add your dashboard content here -->
+      <!-- Dashboard content -->
+      <div class="content-bg p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-2">Buku Terpopuler</h2>
+        <ul class="text-gray-700 list-disc pl-5">
+          <li>Book Title 1</li>
+          <li>Book Title 2</li>
+          <li>Book Title 3</li>
+        </ul>
+      </div>
+      <div class="content-bg p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-2">Buku Baru</h2>
+        <ul class="text-gray-700 list-disc pl-5">
+          <li>Book Title 4</li>
+          <li>Book Title 5</li>
+          <li>Book Title 6</li>
+        </ul>
+      </div>
+      <div class="content-bg p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold mb-2">Event Mendatang</h2>
+        <p class="text-gray-700">Buku Baru Akan Datang: 25 Agustus 2024</p>
+      </div>
     </div>
   </div>
 
@@ -121,11 +122,26 @@
     document.addEventListener('DOMContentLoaded', function() {
       const mobileMenuButton = document.querySelector('[aria-controls="mobile-menu"]');
       const mobileMenu = document.getElementById('mobile-menu');
+      const userMenuButton = document.getElementById('user-menu-button');
+      const userMenu = document.getElementById('user-menu');
 
       mobileMenuButton.addEventListener('click', function() {
         const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
         mobileMenuButton.setAttribute('aria-expanded', !expanded);
         mobileMenu.classList.toggle('hidden');
+      });
+
+      userMenuButton.addEventListener('click', function() {
+        const expanded = userMenuButton.getAttribute('aria-expanded') === 'true' || false;
+        userMenuButton.setAttribute('aria-expanded', !expanded);
+        userMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', function(event) {
+        if (!userMenuButton.contains(event.target) && !userMenu.contains(event.target)) {
+          userMenu.classList.add('hidden');
+          userMenuButton.setAttribute('aria-expanded', false);
+        }
       });
     });
   </script>
